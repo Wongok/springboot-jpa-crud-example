@@ -11,9 +11,24 @@ function signup() {
         data: JSON.stringify(user),
         dataType: 'json',
         contentType: 'application/json; charset=utf-8'
-    }).done(function () {
+    }).done(function (id) {
         $('#signUp').hide();
         $('#login').show();
+        findById(id);
+    }).fail(function () {
+        console.log('fail');
+    });
+}
+
+function findById(id) {
+    $.ajax({
+        url: '/find',
+        type: 'post',
+        data: JSON.stringify(id),
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8'
+    }).done(function (user) {
+        $('#userLoginId').val(user.userId);
     }).fail(function () {
         console.log('fail');
     });

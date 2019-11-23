@@ -1,5 +1,6 @@
 package boot.jpa.crud.controller;
 
+import boot.jpa.crud.dto.UserFindByIdResponseDto;
 import boot.jpa.crud.dto.UserSignUpDTO;
 import boot.jpa.crud.service.UserService;
 import lombok.AllArgsConstructor;
@@ -16,5 +17,10 @@ public class UserRestController {
     @PostMapping("/signup")
     public Long UserSignUpRequest(@RequestBody UserSignUpDTO dto) {
         return userService.UserSignUpRequest(dto);
+    }
+
+    @PostMapping("/find")
+    public UserFindByIdResponseDto UserFindByIdResponse(@RequestBody Long id) {
+        return userService.UserFindByIdResponse(id);
     }
 }

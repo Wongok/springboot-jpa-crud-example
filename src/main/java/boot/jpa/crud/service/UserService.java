@@ -1,6 +1,8 @@
 package boot.jpa.crud.service;
 
+import boot.jpa.crud.dto.UserFindByIdResponseDto;
 import boot.jpa.crud.dto.UserSignUpDTO;
+import boot.jpa.crud.user.User;
 import boot.jpa.crud.user.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,5 +20,9 @@ public class UserService {
         return userRepository.save(dto.toEntity()).getId();
     }
 
-
+    @Transactional
+    public UserFindByIdResponseDto UserFindByIdResponse(Long id) {
+        User user = userRepository.findById(id).orElse(null);
+        return new UserFindByIdResponseDto(user);
+    }
 }
