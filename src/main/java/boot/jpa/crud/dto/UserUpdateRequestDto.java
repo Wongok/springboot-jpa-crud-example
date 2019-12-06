@@ -9,14 +9,16 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class UserSignUpDTO {
+public class UserUpdateRequestDto {
 
+    private Long id;
     private String userName;
     private String userId;
     private String password;
 
     public User toEntity() {
         return User.builder()
+                .id(id)
                 .userName(userName)
                 .userId(userId)
                 .password(password)

@@ -2,7 +2,8 @@ package boot.jpa.crud.service;
 
 import boot.jpa.crud.dto.UserFindAllDto;
 import boot.jpa.crud.dto.UserFindByIdResponseDto;
-import boot.jpa.crud.dto.UserSignUpDTO;
+import boot.jpa.crud.dto.UserSignUpDto;
+import boot.jpa.crud.dto.UserUpdateRequestDto;
 import boot.jpa.crud.user.User;
 import boot.jpa.crud.user.UserRepository;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,7 @@ public class UserService {
     private UserRepository userRepository;
 
     @Transactional
-    public Long UserSignUpRequest(UserSignUpDTO dto) {
+    public Long UserSignUpRequest(UserSignUpDto dto) {
         return userRepository.save(dto.toEntity()).getId();
     }
 
@@ -36,5 +37,10 @@ public class UserService {
         return userRepository.findAll().stream()
                 .map(UserFindAllDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public Long HeroUpdateRequest(UserUpdateRequestDto dto){
+        return userRepository.save(dto.toEntity()).getId();
     }
 }
