@@ -21,26 +21,31 @@ public class UserService {
     private UserRepository userRepository;
 
     @Transactional
-    public Long UserSignUpRequest(UserSignUpDto dto) {
+    public Long userSignUpRequest(UserSignUpDto dto) {
         return userRepository.save(dto.toEntity()).getId();
     }
 
     @Transactional
-    public UserFindByIdResponseDto UserFindByIdResponse(Long id) {
+    public UserFindByIdResponseDto userFindByIdResponse(Long id) {
         User user = userRepository.findById(id).orElse(null);
         return new UserFindByIdResponseDto(user);
     }
 
     @Transactional
     @ReadOnlyProperty
-    public List<UserFindAllDto> UserFindAllResponse() {
+    public List<UserFindAllDto> userFindAllResponse() {
         return userRepository.findAll().stream()
                 .map(UserFindAllDto::new)
                 .collect(Collectors.toList());
     }
 
     @Transactional
-    public Long HeroUpdateRequest(UserUpdateRequestDto dto){
+    public Long userUpdateRequest(UserUpdateRequestDto dto){
         return userRepository.save(dto.toEntity()).getId();
+    }
+
+    @Transactional
+    public void userDeleteRequest(Long id) {
+        userRepository.deleteById(id);
     }
 }

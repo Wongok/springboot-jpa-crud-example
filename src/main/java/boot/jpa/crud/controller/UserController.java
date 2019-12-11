@@ -20,7 +20,7 @@ public class UserController {
 
     @GetMapping("/list")
     public String list(Model model) {
-        model.addAttribute("list", userService.UserFindAllResponse());
+        model.addAttribute("list", userService.userFindAllResponse());
         return "list";
     }
 }
