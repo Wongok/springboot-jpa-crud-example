@@ -1,7 +1,6 @@
 package boot.jpa.crud.controller;
 
 import boot.jpa.crud.service.UserService;
-import boot.jpa.crud.user.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +12,7 @@ public class UserController {
 
     private UserService userService;
 
-    @GetMapping("/signup")
+    @GetMapping({"/signup", "/"})
     public String join() {
         return "signup";
     }

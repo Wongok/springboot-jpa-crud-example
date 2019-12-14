@@ -1,4 +1,4 @@
-package boot.jpa.crud.user;
+package boot.jpa.crud.domain;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
@@ -21,4 +21,5 @@ public abstract class BaseTimeEntity {
 
     @LastModifiedDate
     private LocalDateTime modifiedDate;
+
 }

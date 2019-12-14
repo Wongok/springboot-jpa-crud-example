@@ -1,16 +1,12 @@
 package boot.jpa.crud.dto;
 
-import boot.jpa.crud.user.User;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import boot.jpa.crud.domain.user.User;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UserSignUpDto {
-
     private String userName;
     private String userId;
     private String password;

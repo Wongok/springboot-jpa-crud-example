@@ -1,6 +1,6 @@
 package boot.jpa.crud.dto;
 
-import boot.jpa.crud.user.User;
+import boot.jpa.crud.domain.user.User;
 import lombok.Getter;
 
 @Getter
