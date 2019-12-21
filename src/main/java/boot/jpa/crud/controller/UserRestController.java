@@ -2,12 +2,10 @@ package boot.jpa.crud.controller;
 
 import boot.jpa.crud.dto.UserFindByIdResponseDto;
 import boot.jpa.crud.dto.UserSignUpDto;
+import boot.jpa.crud.dto.UserUpdateRequestDto;
 import boot.jpa.crud.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
@@ -29,5 +27,10 @@ public class UserRestController {
     public Long UserDeleteByIdRequest(@RequestBody Long id) {
         userService.userDeleteRequest(id);
         return id;
+    }
+
+    @PutMapping("/update")
+    public Long UserUpdateRequest(@RequestBody UserUpdateRequestDto dto) {
+        return userService.userUpdateRequest(dto);
     }
 }

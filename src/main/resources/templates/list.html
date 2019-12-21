@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>List</title>
+    <link href="/css/list.css" rel="stylesheet">
 </head>
 <body>
     <table border="1px solid black">
@@ -28,7 +29,32 @@
         </tbody>
     </table>
 
-
+    <div id="updateModal">
+        <div>
+            <h4>Update Form</h4>
+        </div>
+        <div>
+            <table border="1px solid black">
+                <thead>
+                <tr>
+                    <th>UserName</th>
+                    <th>UserId</th>
+                    <th>Password</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input placeholder type="text" id="updateUserName" class="autocomplete"></td>
+                    <td><input placeholder type="text" id="updateUserId" class="autocomplete"></td>
+                    <td><input placeholder type="text" id="updatePassword" class="autocomplete"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button th:onclick="|javascript:update()|">Update</button>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="/js/list.js"></script>
 </body>
